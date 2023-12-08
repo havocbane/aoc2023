@@ -32,7 +32,7 @@ curr_nodes = [node for node in nodes.keys() if node[-1] == 'A']
 for curr_node in curr_nodes:
     steps = 0
     instruction = 0
-    while curr_node[-1] != 'Z': # or steps == 0:
+    while curr_node[-1] != 'Z':
         l_or_r = instructions[instruction]
         curr_node = nodes[curr_node][l_or_r]
         steps += 1
