@@ -16,13 +16,10 @@ with open(filename, 'r') as f:
     grids.append(grid)
 
 def diff_lines(left, right):
-    diff_count = 0
-    diff_loc = 0
-    for x in range(len(left)):
-        if left[x] != right[x]:
-            diff_count += 1
-            diff_loc = x
-    return diff_count, diff_loc
+    return sum([
+        1 for x in range(len(left))
+        if left[x] != right[x]
+    ])
 
 def find_reflection(grid):
     for x in range(len(grid) - 1):
@@ -32,11 +29,11 @@ def find_reflection(grid):
 
         max_c = min(len(left), len(right))
         diff_counts = Counter(
-            str(diff_lines(left[y], right[y])[0])
+            diff_lines(left[y], right[y])
             for y in range(max_c)
         )
-        if diff_counts["1"] == 1 and set(diff_counts.keys()) - {"0", "1"} == set():
-            assert diff_counts["0"] + diff_counts["1"] == max_c, diff_counts
+        if diff_counts[1] == 1 and set(diff_counts.keys()) - {0, 1} == set():
+            assert diff_counts[0] + diff_counts[1] == max_c, diff_counts
             return x + 1
     return -1
 
