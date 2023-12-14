@@ -39,3 +39,7 @@ def score(grid) -> int:
     return s
 
 print(score(rolled_north))
+
+# time python 14.py
+# 103333
+# python 14.py  0.03s user 0.05s system 23% cpu 0.327 total
