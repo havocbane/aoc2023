@@ -8,9 +8,6 @@ with open(filename, 'r') as f:
         line = line.strip()
         sequence = line.split(',')
 
-def ascii_value(ch):
-    return ord(ch)
-
 def main(s):
     hashes = []
     for code in s:

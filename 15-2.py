@@ -11,9 +11,6 @@ with open(filename, 'r') as f:
         line = line.strip()
         sequence = line.split(',')
 
-def ascii_value(ch):
-    return ord(ch)
-
 def HASH(key):
     value = 0
     for ch in key:
